@@ -4,12 +4,12 @@
         </div>
     </div>
     <div class="row">
-    <a href="../post">
+    <a href="../item">
     <?php echo back;?>
     </a>
     </div>
     <div class="row">
-        <?= $model->title ?><?php echo are_you_sure; ?>
+        <?= $model->name ?><?php echo are_you_sure; ?>
 
     </div>
     

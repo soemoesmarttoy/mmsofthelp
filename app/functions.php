@@ -92,8 +92,7 @@ function com_name_exist($com_name) {
         return true;
     }else{
         return false;
-    } 
-    
+    }
 }
 
 function get_company_id() {

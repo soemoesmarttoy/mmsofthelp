@@ -3,6 +3,11 @@
             <h3 class="mt-5"><?php echo edit_user ?></h3>
         </div>
     </div>
+    <div class="row">
+    <a href="../category">
+    <?php echo back;?>
+    </a>
+    </div>
     
    <div>
        <form action="" method="POST">

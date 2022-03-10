@@ -17,18 +17,7 @@
         <table class="table table-striped">
         
         <?php foreach($model as $item) : ?>
-            <tr>
-                <?php
-                    if (is_user_admin()){
-                ?>
-                    <td><a href="../admin/deleteuser.php?key=<?= $item->id ?>&email=<?= $item->email ?>"><?php echo del_user;?></a></td>
-                <?php
-                    }else{
-                ?>
-                    <td><?php echo del_user;?></td>
-                <?php
-                }
-                ?>             
+            <tr>            
                 <td><?= $item->email ?></td>
                 <td><?= $item->role ?></td>
                 <td><?= $item->phone ?></td>
@@ -37,11 +26,13 @@
                 <?php
                     if (is_user_admin() || $item->email == $_SESSION['email']){
                 ?>
-                    <td><a href="../admin/edituser.php?key=<?= $item->email ?>"><?php echo edit_user;?></a></td>
+                    <td><a href="../admin/edituser.php?key=<?= $item->email ?>" class="btn btn-outline-primary btn-sm"><?php echo edit_user;?></a></td>
+                    <td><a href="../admin/deleteuser.php?key=<?= $item->id ?>&email=<?= $item->email ?>" class="btn btn-outline-danger btn-sm"><?php echo del_user;?></a></td>
                     <?php
                     }else{
                 ?>
-                    <td>Edit</td>
+                    <td><?php echo edit_user;?></td>
+                    <td><?php echo del_user;?></td>
                 <?php
                 }
                 ?>   

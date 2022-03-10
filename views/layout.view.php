@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>MMSH- <?= $view_bag['title']; ?></title>
+    <title>MMSH - <?= $view_bag['title']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
 
@@ -25,22 +25,15 @@ if (!is_user_authenticated()){
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">        
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
+        <?php foreach($model as $item){
+        ?>
         <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo home;?></a>
+          <a class="nav-link" href="/detail.php/?key=<?= $item -> id ?>"><?= $item -> title?></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo features;?></a>
-        </li>  
-        <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo prices;?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo about;?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><?php echo contact;?></a>
-        </li>
+        <?php
+        }
+        ?>
       </ul>
       <a class="nav-link btn btn-outline-primary" href="login.php"><?php echo login;?></a>
       <a class="nav-link btn btn-outline-primary" href="register.php"><?php echo register;?></a>
@@ -67,7 +60,13 @@ if (!is_user_authenticated()){
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../user"><?php echo users;?></a>
-        </li>                 
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="../item"><?php echo item;?></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../user/formindex.php"><?php echo forms;?></a>
+        </li>                  
       </ul>
       <?php
       }

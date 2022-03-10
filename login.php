@@ -35,8 +35,11 @@ require('app/app.php');
             $view_bag['status'] = "Please enter a valid email address";
         }
     } 
+
+    $com_id = CompanyData::get_company_by_name("MMSoftHelp")->id;
+    $posts = PostData::get_posts($com_id);
     
 
-    view('login');    
+    view('login',$posts);    
        
 ?>

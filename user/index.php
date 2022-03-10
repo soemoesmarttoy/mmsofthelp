@@ -11,9 +11,6 @@ $view_bag =[
     'heading' => "Users List"
 ];
 
-
-$user  = UserData::get_user_by_email($_SESSION['email']);
-
-view('user/index', UserData::get_users($user->company_id));
+view('user/index', UserData::get_users(get_user()->company_id));
 
 ?>

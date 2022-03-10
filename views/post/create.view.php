@@ -1,6 +1,6 @@
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h3 class="mt-5"><?php echo create_category; ?></h3>
+            <h3 class="mt-5"><?php echo create_post; ?></h3>
         </div>
     </div>
     
@@ -21,4 +21,11 @@
           </div>  
        </form>
    </div>
+   <div class="text-danger">
+            <?php
+            if (isset($view_bag['status'])){
+            echo $view_bag['status'];
+            }
+            ?>
+        </div>
 

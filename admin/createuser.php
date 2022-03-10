@@ -41,12 +41,12 @@ if (is_post()){
     if (empty($email) || empty($password) || empty($company_id)
     || empty($role) || empty($phone) || empty($address)){
         $view_bag['status'] = err_fillall;
-        $user = UserData::get_user($_SESSION['email']);
+        $user = UserData::get_user_by_email($_SESSION['email']);
         view('admin/createuser', $user);
     }elseif (email_exist($email)){
 
         $view_bag['status'] = err_email_exist;
-        $user = UserData::get_user($_SESSION['email']);
+        $user = UserData::get_user_by_email($_SESSION['email']);
         view('admin/createuser', $user);
 
     }else{

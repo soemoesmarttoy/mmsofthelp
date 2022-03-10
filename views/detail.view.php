@@ -1,9 +1,4 @@
-<div class="row">
-        <div class="col-lg-12 text-center">
-            <h1 class="mt-5"><?= $view_bag['title'] ?></h1>
-        </div>
-    </div>
-    <div class="row">
-        <?= $model->definition; ?>
-
-    </div>
+<div class="row">        
+        <h3><?= $view_bag['title']; ?></h3>
+        <p><?= $view_bag['body']; ?></p>
+</div>

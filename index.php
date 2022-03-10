@@ -1,25 +1,11 @@
 <?php
-
+session_start();
 require('app/app.php');
-
-
-$view_bag =[
-    'title' => 'Glossary List',
-    'heading' => "Glossary"
-];
-
-
-
-if(isset($_GET['search'])){
-    $items = Data::search_terms($_GET['search']);
-
-    $view_bag['heading'] = 'Search Results for ' . $_GET['search'];
-
-}else{
-    $items = Data::get_terms();
-}
-
-view('index', $items);
-
-
+    $view_bag =[
+        'title' => 'Home',
+        'heading' => ''
+    ];
+    $com_id = CompanyData::get_company_by_name("MMSoftHelp")->id;
+    $posts = PostData::get_posts($com_id);
+    view('index', $posts);
 ?>

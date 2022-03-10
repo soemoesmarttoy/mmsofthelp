@@ -1,26 +1,23 @@
 <?php
+session_start();
+require('app/app.php');   
 
-require('app/app.php');
+    if(!empty($_GET['key'])) {
+                
+        $post = PostData::get_post($_GET['key']);
+        $com_id = $post -> com_id;
+        $posts = PostData::get_posts($com_id);
+        $post_title = $post -> title;
+        $post_body = $post -> body;
 
+        $view_bag =[
+            'title' => $post_title ,
+            'body' => $post_body ,
+            'key' => $_GET['key']
+        ];
 
-if (!isset($_GET['term'])){
-    redirect('index.php');
-}
-
-$data = Data::get_term($_GET['term']);//TODO: validate input
-if ($data == false){
-    view('not_found');
-    die();
-}
-
-
-$view_bag = [
-    'title' => 'Detail for ' . $data->term
-];
-
-
-
-view('detail', $data);
-
-
+    view('detail', $posts); 
+    }else{
+        redirect('../index.php');
+    }
 ?>

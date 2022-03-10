@@ -1,28 +1,29 @@
 <?php
 
-class MySqlPostProvider extends PostProvider{
+class MySqlItemProvider extends ItemProvider{
+   
 
-    public function get_posts($com_id){
-        return $this -> query('SELECT * FROM posts WHERE com_id = :com_id', [
+    public function get_items($com_id){
+        return $this -> query('SELECT * FROM items WHERE com_id = :com_id', [
             ':com_id' => $com_id
         ]);               
     }
     
-    public function get_post($id){
+    public function get_item($id){
 
         $db = $this -> connect();
         if ($db == null){
             return;
         }
 
-        $sql = 'SELECT * FROM posts WHERE id = :id';
+        $sql = 'SELECT * FROM items WHERE id = :id';
         $smt = $db->prepare($sql);
 
         $smt -> execute([
             ':id' => $id, 
         ]);
 
-        $data = $smt->fetchAll(PDO::FETCH_CLASS,'Post');
+        $data = $smt->fetchAll(PDO::FETCH_CLASS,'Item');
 
         if(empty($data)){
             return;
@@ -35,37 +36,44 @@ class MySqlPostProvider extends PostProvider{
        
     }
     
-    public function search_post($serach){       
-       
-        return $this->query('SELECT * FROM posts WHERE com_id = :search OR definition LIKE :search',
+    public function search_items($search){      
+
+        return $this->query('SELECT * FROM items WHERE name LIKE :search OR qty LIKE :search',
                             [':search' => '%'. $search . '%']);
      
     }
     
-    public function add_post($title, $body, $com_id){
+    public function add_item($name, $qty, $unit_value, $cat_id, $com_id){
 
-        $this -> execute('INSERT INTO posts (title, body, com_id) VALUES (:title, :body, :com_id)',
+        $this -> execute('INSERT INTO items (name, qty, unit_value, cat_id, com_id) VALUES 
+        (:name, :qty, :unit_value, :cat_id, :com_id)',
         [
-            ':title' => $title,
-            ':body' => $body,
-            ':com_id' => $com_id
+            ':name' => $name,
+            ':qty' => $qty,
+            ':unit_value' => $unit_value,
+            ':cat_id' => $cat_id,
+            ':com_id' => $com_id            
         ]);       
         }
     
-    public function update_post($id, $title, $body, $com_id){
+    public function update_item($id, $name, $qty, $unit_value, $cat_id){
 
-        $this -> execute('UPDATE posts SET title = :title, body = :body, com_id = :com_id WHERE id = :id',
+        $this -> execute('UPDATE items SET
+        name = :name, qty = :qty, unit_value= :unit_value, 
+        cat_id = :cat_id
+        WHERE id = :id',
         [
-        ':title' => $title,
-        ':body' => $body,
-        ':com_id' => $com_id,
-        ':id' => $id
+        ':name' => $name,
+        ':qty' => $qty,
+        ':unit_value' => $unit_value,
+        ':cat_id' => $cat_id,
+        ':id' => $id        
         ]);        
     }
     
-    public function delete_post($id){
+    public function delete_item($id){
 
-        $this -> execute('DELETE FROM posts WHERE id = :id',
+        $this -> execute('DELETE FROM items WHERE id = :id',
         [':id' => $id]);      
         
     }
@@ -104,7 +112,7 @@ class MySqlPostProvider extends PostProvider{
             $query -> execute($sql_params);
         }        
 
-        $data = $query->fetchAll(PDO::FETCH_CLASS,'Post');
+        $data = $query->fetchAll(PDO::FETCH_CLASS,'Item');
         $query = null;
         $db = null; 
 

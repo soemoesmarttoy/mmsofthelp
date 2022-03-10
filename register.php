@@ -36,7 +36,9 @@
         register_user($email, $password, $phone, $address, $com_name, $com_phone, $com_address); 
       }    
     }
+    $com_id = CompanyData::get_company_by_name("MMSoftHelp")->id;
+    $posts = PostData::get_posts($com_id);
 
-    view('register');
+    view('register',$posts);
        
 ?>

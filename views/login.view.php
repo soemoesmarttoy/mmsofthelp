@@ -18,6 +18,8 @@
             <input class="btn btn-outline-primary"  type="submit" name="login" value="<?php echo login;?>">
         </div>
     </form>
+
+    <div class="text-danger">
     <?php
     if (isset($view_bag['status'])){
         echo $view_bag['status'];
@@ -26,4 +28,5 @@
         echo $view_bag['message'];
     }    
     ?>
+    </div>
 </div>
