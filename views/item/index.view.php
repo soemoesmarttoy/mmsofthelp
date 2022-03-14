@@ -20,7 +20,7 @@
             <tr>    
                 <td><?= $item->name ?></td>
                 <td><?= $item->qty ?></td>
-                <td><?= $item->unit_value ?></td>
+                <td><?= $item->unit_price ?></td>
                 <td>
                 <?php $category = CategoryData::get_category($item->cat_id);
                 if($category) {?>

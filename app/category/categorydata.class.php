@@ -29,8 +29,8 @@ class CategoryData{
         return self::$ds->delete_category($id);
     }
 
-    static public function update_category($id, $name, $com_id){
-        return self::$ds->update_category($id, $name, $com_id);
+    static public function update_category($id, $name){
+        return self::$ds->update_category($id, $name);
     }
 
     static public function get_data(){

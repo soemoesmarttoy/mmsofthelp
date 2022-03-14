@@ -23,7 +23,7 @@ class CategoryProvider{
        
         }
 
-    public function update_category($id, $name, $com_id){
+    public function update_category($id, $name){
         
     }
     

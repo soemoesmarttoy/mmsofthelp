@@ -27,8 +27,9 @@ if (is_post()){
     if (is_user_admin()){
      
     $title = sanitize($_POST['title']);
-    $body = sanitize($_POST['body']);
-    $com_id = sanitize($_POST['com_id']);    
+    $body = $_POST['body'];
+    $com_id = sanitize($_POST['com_id']);
+       
 
     if (empty($title) || empty($body) || empty($com_id)){
         $view_bag['status'] = err_fillall;      

@@ -6,6 +6,19 @@
 
     <title>MMSH - <?= $view_bag['title']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="../ckeditor5-build-classic/ckeditor.js"></script>
+    <script>
+          function load_new_content(){
+     var selected_option_value=$("#cat_id option:selected").val(); //get the value of the current selected option.
+
+     $.post("../user/data.php", {option_value: selected_option_value},
+        
+     );
+} 
+
+    </script>
+
+    
   </head>
 
 
@@ -26,7 +39,9 @@ if (!is_user_authenticated()){
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-        <?php foreach($model as $item){
+        <?php 
+        $posts = PostData::get_posts_default();
+        foreach($posts as $item){
         ?>
         <li class="nav-item">
           <a class="nav-link" href="/detail.php/?key=<?= $item -> id ?>"><?= $item -> title?></a>
@@ -35,8 +50,8 @@ if (!is_user_authenticated()){
         }
         ?>
       </ul>
-      <a class="nav-link btn btn-outline-primary" href="login.php"><?php echo login;?></a>
-      <a class="nav-link btn btn-outline-primary" href="register.php"><?php echo register;?></a>
+      <a class="nav-link btn btn-outline-primary" href="../login.php"><?php echo login;?></a>
+      <a class="nav-link btn btn-outline-primary" href="../register.php"><?php echo register;?></a>
       <?php
       }
       ?>
@@ -59,14 +74,14 @@ if (!is_user_authenticated()){
           <a class="nav-link" href="../category"><?php echo category;?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../user"><?php echo users;?></a>
-        </li> 
-        <li class="nav-item">
           <a class="nav-link" href="../item"><?php echo item;?></a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../user"><?php echo users;?></a>
+        </li>      
+        <li class="nav-item">
           <a class="nav-link" href="../user/formindex.php"><?php echo forms;?></a>
-        </li>                  
+        </li>         
       </ul>
       <?php
       }
@@ -87,6 +102,22 @@ if (!is_user_authenticated()){
     <div class="container">
 <?php require("$name.view.php");?>
     </div>    
-    </body>
+    </body>    
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script>
+    ClassicEditor
+    .create( document.querySelector( '#body' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
+</script>
     </html>

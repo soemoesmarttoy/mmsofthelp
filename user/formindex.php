@@ -6,11 +6,8 @@ require('../app/app.php');
 
 ensure_user_is_authenticated();
 
-$view_bag =[
-    'title' => '',
-    'heading' => ''
-];
+$view_bag =['title' => 'Forms'];
 
-view('user/formindex', FormData::get_forms(get_user()->company_id));
+view('user/formindex');
 
 ?>

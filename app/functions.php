@@ -44,11 +44,11 @@ function register_user($email, $password, $phone, $address, $com_name, $com_phon
 
     CompanyData::add_company($com_name, $com_phone, $com_address);
 
-    $company_id = CompanyData::get_company_by_name($com_name)->id;
+    $comp_id = CompanyData::get_company_by_name($com_name)->id;
 
     $role = 'admin';
     
-    $user = UserData::add_user($email, $password, $company_id, $role, $phone, $address);
+    $user = UserData::add_user($email, $password, $com_id, $role, $phone, $address);
 
     $success = success_reg;
 
@@ -97,7 +97,7 @@ function com_name_exist($com_name) {
 
 function get_company_id() {
     $user = UserData::get_user_by_email($_SESSION['email']);    
-    return $user->company_id;
+    return $user->com_id;
 }
 
 function get_company_name() {  

@@ -21,20 +21,15 @@
           <div class="form-group">
             <label for="cat_id"><?php echo item_cat; ?></label>
             <select class="form-select" name='cat_id' id='cat_id'>
-            <option selected value="<?= $model->cat_id ?>">
-            <?php $category = CategoryData::get_category($model->cat_id);
-                if($category) {?>
-                <?=$category->name ?>
-                <?php 
-                } 
-                ?>
-            
-            </option>
             <?php 
             $items = CategoryData::get_categories(get_company_id());
             foreach($items as $item) :
             ?>
+            <?php if($item->id == $model->cat_id){ ?>
+            <option selected value="<?= $item->id ?>"><?= $item->name ?></option>
+            <?php }else{?>
             <option value="<?= $item->id ?>"><?= $item->name ?></option>
+            <?php } ?>
             <?php endforeach; ?>
             </select>
             </div>     
@@ -44,9 +39,9 @@
               <input class="form-control" type="text" name="qty" id="qty" value="<?= $model->qty ?>">
           </div>   
           <div class="form-group">
-              <label for="qty"><?php echo item_unit_value; ?></label>
-              <input class="form-control" type="text" name="unit_value" id="unit_value" value="<?= $model->unit_value ?>">
-          </div>       
+              <label for="unit_price"><?php echo item_unit_value; ?></label>
+              <input class="form-control" type="text" name="unit_price" id="unit_price" value="<?= $model->unit_price ?>">
+          </div>  
           <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" value="<?php echo edit_user;?>">
           </div>  

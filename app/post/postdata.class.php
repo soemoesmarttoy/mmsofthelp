@@ -13,6 +13,10 @@ class PostData{
         return self::$ds->get_posts($com_id);
     }
 
+    static public function get_posts_default(){
+        return self::$ds->get_posts_default();
+    }
+
     static public function get_post($id){
         return self::$ds->get_post($id);
     }

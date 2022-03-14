@@ -15,7 +15,8 @@
     <div class="row">
         <table class="table table-striped">
         
-        <?php foreach($model as $item) : ?>
+        <?php foreach($model as $item) : 
+            if($item -> com_id == $view_bag["com_id"]){ ?>
             <tr>
                 <td><?= $item->name ?></td>
     <?php
@@ -27,7 +28,7 @@
     }
     ?>
             </tr>
-        <?php endforeach; ?>
+        <?php } endforeach; ?>
         </table>
 
     </div>

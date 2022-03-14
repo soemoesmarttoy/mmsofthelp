@@ -7,7 +7,7 @@ class UserProvider{
         $this->source = $source;
     }
 
-    public function get_users($company_id){
+    public function get_users($com_id){
         
     }
     
@@ -23,11 +23,11 @@ class UserProvider{
      
     }
     
-    public function add_user($email, $password, $company_id, $role, $phone, $address){
+    public function add_user($email, $password, $com_id, $role, $phone, $address){
        
         }
     
-    public function update_user($id, $email, $password, $company_id, $role, $phone, $address){
+    public function update_user($id, $email, $password, $com_id, $role, $phone, $address){
         
     }
     

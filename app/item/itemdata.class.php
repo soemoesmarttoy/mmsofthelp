@@ -13,6 +13,10 @@ class ItemData{
         return self::$ds->get_items($com_id);
     }
 
+    static public function get_items_by_cat_id($cat_id){
+        return self::$ds->get_items_by_cat_id($cat_id);
+    }
+
     static public function get_item($id){
         return self::$ds->get_item($id);
     }
@@ -21,16 +25,16 @@ class ItemData{
         return self::$ds->search_items($search);
     }
 
-    static public function add_item($name, $qty, $unit_value, $cat_id, $com_id){
-        return self::$ds->add_item($name, $qty, $unit_value, $cat_id, $com_id);
+    static public function add_item($name, $qty, $unit_price, $cat_id, $com_id){
+        return self::$ds->add_item($name, $qty, $unit_price, $cat_id, $com_id);
     }
 
     static public function delete_item($id){
         return self::$ds->delete_item($id);
     }
 
-    static public function update_item($id, $name, $qty, $unit_value, $cat_id){
-        return self::$ds->update_item($id, $name, $qty, $unit_value, $cat_id);
+    static public function update_item($id, $name, $qty, $unit_price, $cat_id){
+        return self::$ds->update_item($id, $name, $qty, $unit_price, $cat_id);
     }
 
     static public function get_data(){

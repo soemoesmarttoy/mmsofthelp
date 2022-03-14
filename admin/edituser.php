@@ -19,7 +19,7 @@ if (is_get()){
         die();
     }
     $user = UserData::get_user_by_email($key);
-    if($user == false || $user->company_id != get_user()->company_id){
+    if($user == false || $user->com_id != get_user()->com_id){
         view('not_found');
         die();
     }
@@ -37,12 +37,12 @@ if (is_post()){
     $id =  sanitize($_POST['id']);
     $email = sanitize($_POST['email']);
     $password = sanitize($_POST['password']);
-    $company_id = sanitize($_POST['company_id']);
+    $com_id = sanitize($_POST['com_id']);
     $role = sanitize($_POST['role']);
     $phone = sanitize($_POST['phone']);
     $address = sanitize($_POST['address']);
 
-    if (empty($id) || empty($email) || empty($password) || empty($company_id)
+    if (empty($id) || empty($email) || empty($password) || empty($com_id)
     || empty($role) || empty($phone) || empty($address)){
         $view_bag['status'] = err_fillall;
         $user = UserData::get_user_by_email($_GET['key']);
@@ -53,7 +53,7 @@ if (is_post()){
             $user = UserData::get_user_by_email($_GET['key']);
             view('admin/edituser', $user);
     }else{
-            UserData::update_user($id, $email, $password, $company_id, $role, $phone, $address);
+            UserData::update_user($id, $email, $password, $com_id, $role, $phone, $address);
             if (!is_user_admin()){
                 $_SESSION['email'] = $email;
             }        

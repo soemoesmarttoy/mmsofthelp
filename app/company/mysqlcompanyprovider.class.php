@@ -68,13 +68,13 @@ class MySqlCompanyProvider extends CompanyProvider{
      
     }
     
-    public function add_company($com_name, $com_phone, $com_address){
+    public function add_company($name, $phone, $address){
 
         $this -> execute('INSERT INTO companies (name, phone, address) VALUES (:name, :phone, :address)',
         [
-            ':name' => $com_name,
-            ':phone' => $com_phone,
-            ':address' => $com_address,
+            ':name' => $name,
+            ':phone' => $phone,
+            ':address' => $address,
         ]);       
         }
     

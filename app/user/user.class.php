@@ -5,7 +5,7 @@ class   User{
     public $id;
     public $email;
     public $password;
-    public $company_id;
+    public $com_id;
     public $role;
     public $phone;
     public $address;

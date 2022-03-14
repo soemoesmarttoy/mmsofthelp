@@ -19,7 +19,7 @@ if (is_get()){
     }
 
     $user = UserData::get_user_by_email($_GET['email']);
-    if($user === false || $user->company_id != get_user()->company_id){
+    if($user === false || $user->com_id != get_user()->com_id){
         view('not_found');
         die();
     }

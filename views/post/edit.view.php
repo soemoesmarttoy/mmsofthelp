@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
               <label for="body"><?php echo post_body ?></label>
-              <input class="form-control" type="text" name="body" id="body" value="<?= $model->body ?>">
+              <textarea class="form-control" type="text" name="body" id="body"><?= $model->body ?></textarea>
           </div>        
           <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" value="<?php echo edit_user;?>">

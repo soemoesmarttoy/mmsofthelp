@@ -3,9 +3,9 @@
 class MySqlUserProvider extends UserProvider{
    
 
-    public function get_users($company_id){
-        return $this -> query('SELECT * FROM users WHERE company_id = :company_id',
-    [':company_id' => $company_id]);               
+    public function get_users($com_id){
+        return $this -> query('SELECT * FROM users WHERE com_id = :com_id',
+    [':com_id' => $com_id]);               
     }
     
     public function get_user_by_email($email){
@@ -69,25 +69,25 @@ class MySqlUserProvider extends UserProvider{
      
     }
     
-    public function add_user($email, $password, $company_id, $role, $phone, $address){
+    public function add_user($email, $password, $com_id, $role, $phone, $address){
 
-        $this -> execute('INSERT INTO users (email, password, company_id, role, phone, address) VALUES (:email, :password, :company_id, :role, :phone, :address)',
+        $this -> execute('INSERT INTO users (email, password, com_id, role, phone, address) VALUES (:email, :password, :com_id, :role, :phone, :address)',
         [
             ':email' => $email,
             ':password' => $password,
-            ':company_id' => $company_id,
+            ':com_id' => $com_id,
             ':role' => $role,
             ':phone' => $phone,
             ':address' => $address,
         ]);       
         }
     
-    public function update_user($id, $email, $password, $company_id, $role, $phone, $address){
+    public function update_user($id, $email, $password, $com_id, $role, $phone, $address){
 
         $this -> execute('UPDATE users SET 
         email = :email, 
         password = :password,
-        company_id = :company_id,
+        com_id = :com_id,
         role = :role,
         phone = :phone,
         address = :address 
@@ -96,7 +96,7 @@ class MySqlUserProvider extends UserProvider{
         ':id' => $id,
         ':email' => $email,
         ':password' => $password,
-        ':company_id' => $company_id,
+        ':com_id' => $com_id,
         ':role' => $role,
         ':phone' => $phone,
         ':address' => $address,

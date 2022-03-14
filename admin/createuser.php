@@ -31,14 +31,14 @@ if (is_post()){
 
     $email = sanitize($_POST['email']);
     $password = sanitize($_POST['password']);
-    $company_id = sanitize($_POST['company_id']);
+    $com_id = sanitize($_POST['com_id']);
     $role = sanitize($_POST['role']);
     $phone = sanitize($_POST['phone']);
     $address = sanitize($_POST['address']);
 
     
 
-    if (empty($email) || empty($password) || empty($company_id)
+    if (empty($email) || empty($password) || empty($com_id)
     || empty($role) || empty($phone) || empty($address)){
         $view_bag['status'] = err_fillall;
         $user = UserData::get_user_by_email($_SESSION['email']);
@@ -50,7 +50,7 @@ if (is_post()){
         view('admin/createuser', $user);
 
     }else{
-        UserData::add_user($email, $password, $company_id, $role, $phone, $address);
+        UserData::add_user($email, $password, $com_id, $role, $phone, $address);
         redirect('../user/index.php');
     }
 

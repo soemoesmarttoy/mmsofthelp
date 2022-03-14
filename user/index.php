@@ -11,6 +11,6 @@ $view_bag =[
     'heading' => "Users List"
 ];
 
-view('user/index', UserData::get_users(get_user()->company_id));
+view('user/index', UserData::get_users(get_user()->com_id));
 
 ?>

@@ -2,45 +2,25 @@
         <div class="col-lg-12 text-center">
             <h3 class="mt-5"><?php echo forms;?></h3>
         </div>
-    </div>
-    <?php
-                    if (is_user_admin()){
-                ?>
-                    <div class="row">
-                    <a href="../admin/createform.php"><?php echo create_form;?></a>
-                    </div>
-                <?php
-                    }
-                ?> 
-    
-    <div class="row">
-        <table class="table table-striped">
+</div>
+<div class = "row">
+
+<div class="vstack gap-2 col-md-5 mx-auto">
+            <a href="../user/buy.php" class="btn btn-outline-primary"><?php echo buy;?></a>
+            <a href="../user/sell.php" class="btn btn-outline-primary"><?php echo sell;?></a>
+            <a href="../user/rent.php" class="btn btn-outline-primary"><?php echo rent;?></a>
+            <a href="../user/produce.php" class="btn btn-outline-primary"><?php echo produce;?></a>
+        </div>
+
+</div>
+<style>
+    .vstack {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+}
+</style>
+  
         
-        <?php foreach($model as $item) : ?>
-            <tr>            
-                <td><?= $item->name ?></td>      
-                
-                <?php
-                    if (is_user_admin()){
-                ?>
-                    <td><a href="../user/forminput.php?key=<?= $item->id ?> ?>" class="btn btn-outline-success btn-sm"><?php echo submit;?></a></td>
-                    <td><a href="../admin/editform.php?key=<?= $item->id ?>" class="btn btn-outline-primary btn-sm"><?php echo edit_user;?></a></td>
-                    <td><a href="../admin/deleteform.php?key=<?= $item->id ?> ?>" class="btn btn-outline-danger btn-sm"><?php echo del_user;?></a></td>
-                    
-                    <?php
-                    }else{
-                ?>
-                    <td><a href="../user/forminput.php?key=<?= $item->id ?> ?>" class="btn btn-outline-success btn-sm"><?php echo submit;?></a></td>
-                    <td><?php echo edit_user;?></td>
-                    <td><?php echo del_user;?></td>
-                    
-                <?php
-                }
-                ?>   
-
-                
-            </tr>
-        <?php endforeach; ?>
-        </table>
-
-    </div>
+    

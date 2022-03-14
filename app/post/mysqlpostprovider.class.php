@@ -7,6 +7,10 @@ class MySqlPostProvider extends PostProvider{
             ':com_id' => $com_id
         ]);               
     }
+
+    public function get_posts_default(){
+        return $this -> query('SELECT * FROM posts WHERE com_id = 19');               
+    }
     
     public function get_post($id){
 

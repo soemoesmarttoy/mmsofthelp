@@ -26,7 +26,7 @@ if (is_get()){
 
 if (is_post()){
 
-    if (is_user_admin() && get_user()->company_id == $_POST['com_id']){
+    if (is_user_admin() && get_user()->com_id == $_POST['com_id']){
     $id =  sanitize($_POST['id']);
     $title = sanitize($_POST['title']);  
     $body = sanitize($_POST['body']);  

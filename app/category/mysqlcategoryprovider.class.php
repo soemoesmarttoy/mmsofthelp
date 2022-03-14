@@ -3,8 +3,12 @@
 class MySqlCategoryProvider extends CategoryProvider{
    
 
+    public function get_categories_default(){
+        return $this -> query('SELECT * FROM categories WHERE com_id = 0');               
+    }
+
     public function get_categories($com_id){
-        return $this -> query('SELECT * FROM categories WHERE com_id = :com_id', [
+        return $this -> query('SELECT * FROM categories WHERE com_id = :com_id',[
             ':com_id' => $com_id
         ]);               
     }
@@ -36,28 +40,28 @@ class MySqlCategoryProvider extends CategoryProvider{
        
     }
     
-    public function search_terms($search){      
+    public function search_categories($search){      
 
-        return $this->query('SELECT * FROM terms WHERE term LIKE :search OR definition LIKE :search',
+        return $this->query('SELECT * FROM categories WHERE name LIKE :search OR com_id LIKE :search',
                             [':search' => '%'. $search . '%']);
      
     }
     
     public function add_category($name, $com_id){
 
-        $this -> execute('INSERT INTO categories (name, com_id) VALUES (:name, :com_id)',
+        $this -> execute('INSERT INTO categories (name, com_id) 
+        VALUES (:name, :com_id)',
         [
             ':name' => $name,
             ':com_id' => $com_id
         ]);       
         }
     
-    public function update_category($id, $name, $com_id){
+    public function update_category($id, $name){
 
-        $this -> execute('UPDATE categories SET name = :name, com_id = :com_id WHERE id = :id',
+        $this -> execute('UPDATE categories SET name = :name WHERE id = :id',
         [
         ':name' => $name,
-        ':com_id' => $com_id,
         ':id' => $id
         ]);        
     }

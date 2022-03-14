@@ -10,6 +10,10 @@ class PostProvider{
     public function get_posts($com_id){
         
     }
+
+    public function get_posts_default(){
+        
+    }
     
     public function get_post($id){
        

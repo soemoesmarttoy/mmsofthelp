@@ -1,3 +1,4 @@
+
     <div class="row">
         <div class="col-lg-12 text-center">
             <h3 class="mt-5"><?php echo create_post; ?></h3>
@@ -14,11 +15,11 @@
           <div class="form-group">          
               <label for="body"><?php echo post_body; ?></label>
               <textarea class="form-control" aria-label="With textarea" name="body" id="body"></textarea>
-          </div>       
-            
+          </div>
           <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" value="<?php echo submit;?>">
-          </div>  
+          </div>          
+ 
        </form>
    </div>
    <div class="text-danger">
@@ -28,4 +29,7 @@
             }
             ?>
         </div>
+
+       
+
 

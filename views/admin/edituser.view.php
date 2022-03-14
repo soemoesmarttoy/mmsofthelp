@@ -10,7 +10,7 @@
    <div>
        <form action="" method="POST">
            <input type="hidden" name="id" value="<?= $model->id ?>">
-           <input type="hidden" name="company_id" value="<?= $model->company_id ?>">
+           <input type="hidden" name="com_id" value="<?= $model->com_id ?>">
           <div class="form-group">
               <label for="term"><?php echo email;?></label>
               <input class="form-control" type="text" name="email" id="email" value="<?= $model->email ?>">
@@ -20,7 +20,7 @@
               <input class="form-control" type="text"  name="password" id="password" value="<?= $model->password ?>">
           </div>
           <?php
-                    if (is_user_admin()){
+                    if (is_user_admin() && $model->role != "admin"){
                 ?>
                     <div class="form-group">
                     <label for="definition"><?php echo role;?></label>
@@ -36,11 +36,11 @@
                 ?>               
           
           <div class="form-group">
-              <label for="definition"><?php echo phone;?></label>
+              <label for="phone"><?php echo phone;?></label>
               <input class="form-control" type="text"  name="phone" id="phone" value="<?= $model->phone ?>">
           </div>
           <div class="form-group">
-              <label for="definition"><?php echo address;?></label>
+              <label for="address"><?php echo address;?></label>
               <input class="form-control" type="text"  name="address" id="address" value="<?= $model->address ?>">
           </div>
           <div class="form-group">

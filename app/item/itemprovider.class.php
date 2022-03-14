@@ -10,6 +10,10 @@ class ItemProvider{
     public function get_items($com_id){
         
     }
+
+    public function get_items_by_cat_id($cat_id){
+        
+    }
     
     public function get_item($id){
        
@@ -19,11 +23,11 @@ class ItemProvider{
      
     }
     
-    public function add_item($name, $qty, $unit_value, $com_id, $created_at){
+    public function add_item($name, $qty, $unit_price, $cat_id, $com_id){
        
         }
 
-    public function update_item($id, $name, $qty, $unit_value, $cat_id){
+    public function update_item($id, $name, $qty, $unit_price, $cat_id){
         
     }
     

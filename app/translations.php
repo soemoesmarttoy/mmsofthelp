@@ -69,8 +69,13 @@
     define("choose_item", "အမျိုးအစားအမည်ကို ရွေးချယ်ပါ");
     define("choose", "ရွေးချယ်ပါ");
     define("create", "ပြုလုပ်မည်");
-    define("form_name", "စာရင်းပုံစံနာမည်ကို ထည့်သွင်းပါ");
-    define("forms", "စာရင်းပုံစံများ")
+    define("forms", "စာရင်းပုံစံများ");   
+
+    define("buy", "ဝယ်");
+    define("sell", "ရောင်း");
+    define("rent", "ငှား");
+    define("produce", "ထုတ်လုပ်");
+    
     
 
 ?>

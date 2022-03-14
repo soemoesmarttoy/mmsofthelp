@@ -11,16 +11,14 @@ $view_bag =[
 
 if (is_get()){
 
-    if (is_user_admin()){        
-
-        view('item/create');
-
+    if (is_user_admin()){ 
+        $com_id = get_company_id();
+        $view_bag += ['com_id' => $com_id];
+        $categories = CategoryData::get_categories($com_id);
+        view('item/create', $categories);
     }else{
         view('not_authorized');
     }
-
-    
-    
 }
 
 if (is_post()){
@@ -28,7 +26,7 @@ if (is_post()){
      
     $name = sanitize($_POST['name']);
     $qty = sanitize($_POST['qty']);
-    $unit_value = sanitize($_POST['unit_value']);
+    $unit_price = sanitize($_POST['unit_price']);
     $cat_id = sanitize($_POST['cat_id']);
     $com_id = sanitize($_POST['com_id']);    
 
@@ -36,7 +34,7 @@ if (is_post()){
         $view_bag['status'] = err_fillall;      
         view('item/create');
     }else{
-        ItemData::add_item($name, $qty, $unit_value, $cat_id, $com_id);
+        ItemData::add_item($name, $qty, $unit_price, $cat_id, $com_id);
         redirect('../item');
     }
 

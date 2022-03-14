@@ -11,10 +11,13 @@ $view_bag =[
 
 if (is_get()){
 
-    if (is_user_admin()){        
-
+    if (is_user_admin()){
+        
+        $com_id = get_company_id();
+        $view_bag += ['com_id' => $com_id];
+        
+        
         view('category/create');
-
     }else{
         view('not_authorized');
     }
@@ -27,7 +30,8 @@ if (is_post()){
     if (is_user_admin()){
         
     $name = sanitize($_POST['name']);
-    $com_id = sanitize($_POST['com_id']);    
+    $com_id = sanitize($_POST['com_id']);
+      
 
     if (empty($name) || empty($com_id)){
         $view_bag['status'] = err_fillall;      

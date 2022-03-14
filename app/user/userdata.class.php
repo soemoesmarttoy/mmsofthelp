@@ -9,8 +9,8 @@ class UserData{
         return self::$ds = $data_provider;
     }
 
-    static public function get_users($company_id){
-        return self::$ds->get_users($company_id);
+    static public function get_users($com_id){
+        return self::$ds->get_users($com_id);
     }
 
     static public function get_user_by_email($email){
@@ -25,16 +25,16 @@ class UserData{
         return self::$ds->search_users($search);
     }
 
-    static public function add_user($email, $password, $company_id, $role, $phone, $address){
-        return self::$ds->add_user($email, $password, $company_id, $role, $phone, $address);
+    static public function add_user($email, $password, $com_id, $role, $phone, $address){
+        return self::$ds->add_user($email, $password, $com_id, $role, $phone, $address);
     }
 
     static public function delete_user($id){
         return self::$ds->delete_user($id);
     }
 
-    static public function update_user($id, $email, $password, $company_id, $role, $phone, $address){
-        return self::$ds->update_user($id, $email, $password, $company_id, $role, $phone, $address);
+    static public function update_user($id, $email, $password, $com_id, $role, $phone, $address){
+        return self::$ds->update_user($id, $email, $password, $com_id, $role, $phone, $address);
     }
 
     static public function get_data(){

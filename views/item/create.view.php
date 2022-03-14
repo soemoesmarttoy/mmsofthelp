@@ -14,10 +14,10 @@
        <div class="form-group">
         <label for="cat_id"><?php echo item_cat; ?></label>
         <select class="form-select" name='cat_id' id='cat_id'>
-            <option selected value=null><?php echo item_cat_null; ?></option>
+            <option selected value="0"><?php echo item_cat_null; ?></option>
             <?php 
-            $items = CategoryData::get_categories(get_company_id());
-            foreach($items as $item) :
+            
+            foreach($model as $item) :
             ?>
             <option value="<?= $item->id ?>"><?= $item->name ?></option>
             <?php endforeach; ?>
@@ -28,12 +28,13 @@
               <input class="form-control" type="text" name="qty" id="qty">
           </div>
           <div class="form-group">
-              <label for="unit_value"><?php echo item_unit_value; ?></label>
-              <input class="form-control" type="text" name="unit_value" id="unit_vale">
-          </div> 
-          <div class="form-group">
+              <label for="unit_price"><?php echo item_unit_value; ?></label>
+              <input class="form-control" type="text" name="unit_price" id="unit_price">
+          </div>
+        <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" value="<?php echo submit;?>">
-          </div>            
+          </div>
+            
        </form>
    </div>
    <div class="text-danger">

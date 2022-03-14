@@ -9,6 +9,12 @@ class MySqlItemProvider extends ItemProvider{
         ]);               
     }
     
+    public function get_items_by_cat_id($cat_id){
+        return $this -> query('SELECT * FROM items WHERE cat_id = :cat_id', [
+            ':cat_id' => $cat_id
+        ]);               
+    }
+
     public function get_item($id){
 
         $db = $this -> connect();
@@ -38,34 +44,34 @@ class MySqlItemProvider extends ItemProvider{
     
     public function search_items($search){      
 
-        return $this->query('SELECT * FROM items WHERE name LIKE :search OR qty LIKE :search',
+        return $this->query('SELECT * FROM items WHERE name LIKE :search OR com_id LIKE :search',
                             [':search' => '%'. $search . '%']);
      
     }
     
-    public function add_item($name, $qty, $unit_value, $cat_id, $com_id){
+    public function add_item($name, $qty, $unit_price, $cat_id, $com_id){
 
-        $this -> execute('INSERT INTO items (name, qty, unit_value, cat_id, com_id) VALUES 
-        (:name, :qty, :unit_value, :cat_id, :com_id)',
+        $this -> execute('INSERT INTO items (name, qty, unit_price, cat_id, com_id) VALUES 
+        (:name, :qty, :unit_price, :cat_id, :com_id)',
         [
             ':name' => $name,
             ':qty' => $qty,
-            ':unit_value' => $unit_value,
+            ':unit_price' => $unit_price,
             ':cat_id' => $cat_id,
             ':com_id' => $com_id            
         ]);       
         }
     
-    public function update_item($id, $name, $qty, $unit_value, $cat_id){
+    public function update_item($id, $name, $qty, $unit_price, $cat_id){
 
         $this -> execute('UPDATE items SET
-        name = :name, qty = :qty, unit_value= :unit_value, 
+        name = :name, qty = :qty, unit_price= :unit_price, 
         cat_id = :cat_id
         WHERE id = :id',
         [
         ':name' => $name,
         ':qty' => $qty,
-        ':unit_value' => $unit_value,
+        ':unit_price' => $unit_price,
         ':cat_id' => $cat_id,
         ':id' => $id        
         ]);        

@@ -17,8 +17,8 @@ class FileDataProvider extends CategoryProvider{
         return false;
     }
     
-    public function search_terms($search){
-        $items =  $this->  get_terms();
+    public function search_categories($search){
+        $name =  $this->  get_categories();
         $results = array_filter($items, function($item) use($search){
             if(strpos($item->term, $search) !== false || 
                strpos($item->definition, $search) !== false ){

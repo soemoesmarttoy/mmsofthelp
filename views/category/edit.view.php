@@ -16,7 +16,7 @@
           <div class="form-group">
               <label for="name"><?php echo category_name ?></label>
               <input class="form-control" type="text" name="name" id="name" value="<?= $model->name ?>">
-          </div>        
+          </div> 
           <div class="form-group">
           <input class="btn btn-outline-primary" type="submit" value="<?php echo edit_user;?>">
           </div>  

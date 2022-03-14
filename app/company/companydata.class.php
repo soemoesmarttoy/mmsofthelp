@@ -29,8 +29,8 @@ class CompanyData{
         return self::$ds->search_companies($search);
     }
 
-    static public function add_company($com_name, $com_phone, $com_address){
-        return self::$ds->add_company($com_name, $com_phone, $com_address);
+    static public function add_company($name, $phone, $address){
+        return self::$ds->add_company($name, $phone, $address);
     }
 
     static public function delete_company($id){

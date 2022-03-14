@@ -9,7 +9,7 @@
     
    <div>
        <form action="" method="POST">       
-        <input type="hidden" name="company_id" value="<?= $model->company_id ?>">
+        <input type="hidden" name="com_id" value="<?= $model->com_id ?>">
           <div class="form-group">
               <label for="term"><?php echo email;?></label>
               <input class="form-control" type="text" name="email" id="email">
