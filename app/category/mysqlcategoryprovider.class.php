@@ -7,6 +7,33 @@ class MySqlCategoryProvider extends CategoryProvider{
         return $this -> query('SELECT * FROM categories WHERE com_id = 0');               
     }
 
+    
+    public function get_category_by_name($name){
+        $db = $this -> connect();
+        if ($db == null){
+            return;
+        }
+
+        $sql = 'SELECT * FROM categories WHERE name = :name';
+        $smt = $db->prepare($sql);
+
+        $smt -> execute([
+            ':name' => $name, 
+        ]);
+
+        $data = $smt->fetchAll(PDO::FETCH_CLASS,'Category');
+
+        if(empty($data)){
+            return;
+        }
+
+        $smt = null;
+        $db = null;
+
+        return $data[0];
+                    
+    }
+
     public function get_categories($com_id){
         return $this -> query('SELECT * FROM categories WHERE com_id = :com_id',[
             ':com_id' => $com_id

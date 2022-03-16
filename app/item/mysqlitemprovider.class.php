@@ -4,14 +4,32 @@ class MySqlItemProvider extends ItemProvider{
    
 
     public function get_items($com_id){
-        return $this -> query('SELECT * FROM items WHERE com_id = :com_id', [
-            ':com_id' => $com_id
+        return $this -> query('SELECT * FROM items WHERE com_id = :com_id AND type = :type', [
+            ':com_id' => $com_id,
+            ':type' => "item"
         ]);               
     }
     
     public function get_items_by_cat_id($cat_id){
         return $this -> query('SELECT * FROM items WHERE cat_id = :cat_id', [
-            ':cat_id' => $cat_id
+            ':cat_id' => $cat_id,
+            
+        ]);               
+    }
+
+    public function get_items_by_cat_id_with_com($cat_id, $com_id){
+        return $this -> query('SELECT * FROM items WHERE cat_id = :cat_id AND com_id = :com_id', [
+            ':cat_id' => $cat_id,
+            ':com_id' => $com_id
+        ]);               
+    }
+
+    public function get_locations($com_id, $cat_id){
+        return $this -> query('SELECT * FROM items WHERE com_id = :com_id AND cat_id = :cat_id AND type = :type',
+        [
+            ':com_id' => $com_id,
+            ':cat_id' => $cat_id,
+            ':type' => "place"
         ]);               
     }
 
@@ -51,16 +69,45 @@ class MySqlItemProvider extends ItemProvider{
     
     public function add_item($name, $qty, $unit_price, $cat_id, $com_id){
 
-        $this -> execute('INSERT INTO items (name, qty, unit_price, cat_id, com_id) VALUES 
-        (:name, :qty, :unit_price, :cat_id, :com_id)',
+        $this -> execute('INSERT INTO items (name, qty, unit_price, cat_id, com_id, type) VALUES 
+        (:name, :qty, :unit_price, :cat_id, :com_id, :type)',
         [
             ':name' => $name,
             ':qty' => $qty,
             ':unit_price' => $unit_price,
             ':cat_id' => $cat_id,
-            ':com_id' => $com_id            
+            ':com_id' => $com_id,
+            ':type' => "item"          
         ]);       
         }
+
+        public function add_location($name, $qty, $unit_price, $cat_id, $com_id){
+
+            $this -> execute('INSERT INTO items (name, qty, unit_price, cat_id, com_id, type) VALUES 
+            (:name, :qty, :unit_price, :cat_id, :com_id, :type)',
+            [
+                ':name' => $name,
+                ':qty' => $qty,
+                ':unit_price' => $unit_price,
+                ':cat_id' => $cat_id,
+                ':com_id' => $com_id,
+                ':type' => "place"         
+            ]);       
+            }
+
+            public function add_workorder($name, $qty, $unit_price, $cat_id, $com_id, $type){
+
+                $this -> execute('INSERT INTO items (name, qty, unit_price, cat_id, com_id, type) VALUES 
+                (:name, :qty, :unit_price, :cat_id, :com_id, :type)',
+                [
+                    ':name' => $name,
+                    ':qty' => $qty,
+                    ':unit_price' => $unit_price,
+                    ':cat_id' => $cat_id,
+                    ':com_id' => $com_id,
+                    ':type' => $type         
+                ]);       
+                }
     
     public function update_item($id, $name, $qty, $unit_price, $cat_id){
 
@@ -73,6 +120,21 @@ class MySqlItemProvider extends ItemProvider{
         ':qty' => $qty,
         ':unit_price' => $unit_price,
         ':cat_id' => $cat_id,
+        ':id' => $id        
+        ]);        
+    }
+
+    public function update_workorder($id, $name, $qty, $unit_price, $type){
+
+        $this -> execute('UPDATE items SET
+        name = :name, qty = :qty, unit_price= :unit_price, 
+        type = :type
+        WHERE id = :id',
+        [
+        ':name' => $name,
+        ':qty' => $qty,
+        ':unit_price' => $unit_price,
+        ':type' => $type,
         ':id' => $id        
         ]);        
     }

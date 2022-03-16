@@ -1,10 +1,7 @@
 <?php
 session_start();
 require('app/app.php');
-    $view_bag =[
-        'title' => 'Home',
-        'heading' => ''
-    ];
+    $view_bag =[];
     $com_id = CompanyData::get_company_by_name("MMSoftHelp")->id;
     $posts = PostData::get_posts($com_id);
 
@@ -14,6 +11,5 @@ require('app/app.php');
     $view_bag += ['title' => $title];
     $view_bag += ['body' => $body];
 
-    
     view('detail');
 ?>

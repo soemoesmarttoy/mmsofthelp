@@ -5,8 +5,6 @@ require('app/app.php');
     if(!empty($_GET['key'])) {
                 
         $post = PostData::get_post($_GET['key']);
-        $com_id = $post -> com_id;
-        $posts = PostData::get_posts($com_id);
         $post_title = $post -> title;
         $post_body = $post -> body;
 
@@ -16,7 +14,7 @@ require('app/app.php');
             'key' => $_GET['key']
         ];
 
-    view('detail', $posts); 
+    view('detail'); 
     }else{
         redirect('../index.php');
     }

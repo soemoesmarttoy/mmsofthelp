@@ -13,6 +13,14 @@ class CategoryData{
         return self::$ds->get_categories($com_id);
     }
 
+    static public function get_categories_default(){
+        return self::$ds->get_categories_default();
+    }
+
+    static public function get_category_by_name($name){
+        return self::$ds->get_category_by_name($name);
+    }
+
     static public function get_category($id){
         return self::$ds->get_category($id);
     }

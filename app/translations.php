@@ -75,6 +75,37 @@
     define("sell", "ရောင်း");
     define("rent", "ငှား");
     define("produce", "ထုတ်လုပ်");
+    define("pay_type", "Payment Type(ငွေးပေးချေမှုပုံစံ)");
+
+    define("customers", "ဖောက်သည်များ");
+    define("create_cus", "ဖောက်သည်အသစ် ထည့်သွင်းမည်");
+    define("cus_name", "‌ဖောက်သည်၏ အမည်");
+    define ("cus_phone", "ဖောက်သည်၏ ဖုန်းနံပါတ်");
+
+    define("location", "ကုန်ထားရှိမည့်နေရာ");
+    define("create_location", "ကုန်ထားရှိမည့်နေရာ အသစ်ထည့်သွင်းမည်");
+    define("location_name", "ကုန်ထားရှိမည့်နေရာ၏ နာမည်");
+    define("location_value", "ကုန်ထားရှိမည့်နေရာ၏ တန်ဖိုး");
+
+    define("item_location_menu", "ပစ္စည်းနှင့်နေရာ");
+    define("people_menu", "လူမှုရေးရာ");
+
+    define("work_type", "အလုပ်အမျိုးအစား");
+    define("create_work_type", "အလုပ်အမျိုးအစား အသစ်ထည့်သွင်းမည်");
+    define("work_type_name", "အလုပ်အမည်");
+    define("work_type_qty", "လုပ်ခတွက်မည့် အရေအတွက်/အလေးချိန်");
+    define("input_weight_qty", "အရေအတွက်/အလေးချိန်ကို ထည့်သွင်းပါ ဥပမာ 100 သို့မဟုတ် 13.5 သို့မဟုတ် 1");
+    define("weight", "အလေးချိန်");
+    define("unit", "အိတ်");
+    define("tin", "တင်း");
+    define("kg", "ကီလိုဂရမ်");
+    define("vis", "ပိဿာ");
+    define("pound", "ပေါင်");
+    define("work_type_value", "နှုန်းထားငွေ");
+    define("continue_work", "ဆက်လက်လုပ်ဆောင်ရမည့် အလုပ်");
+    define("one_stop", "မရှိပါ");
+
+
     
     
 

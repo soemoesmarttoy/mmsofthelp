@@ -11,6 +11,14 @@ class CategoryProvider{
         
     }
     
+    public function get_categories_default(){
+        
+    }
+
+    public function get_category_by_name($name){
+        
+    }
+
     public function get_category($id){
        
     }

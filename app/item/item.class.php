@@ -8,6 +8,7 @@ class   Item{
     public $unit_price;
     public $cat_id;
     public $com_id;
+    public $type;
 }
 
 ?>

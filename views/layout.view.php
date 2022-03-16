@@ -67,21 +67,41 @@ if (!is_user_authenticated()){
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-          <a class="nav-link" href="../post"><?php echo post;?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../category"><?php echo category;?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../item"><?php echo item;?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../user"><?php echo users;?></a>
-        </li>      
-        <li class="nav-item">
-          <a class="nav-link" href="../user/formindex.php"><?php echo forms;?></a>
-        </li>         
+   
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <?php echo people_menu; ?>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="../post"><?php echo post;?></a></li>
+    <li><a class="dropdown-item" href="../user"><?php echo users;?></a></li>
+    <li><a class="dropdown-item" href="../customer"><?php echo customers;?></a></li>
+    <li><a class="dropdown-item" href="../workorder"><?php echo work_type;?></a></li>
+  </ul>
+</div> 
+
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <?php echo item_location_menu; ?>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="../category"><?php echo category;?></a></li>
+    <li><a class="dropdown-item" href="../item"><?php echo item;?></a></li>
+    <li><a class="dropdown-item" href="../location"><?php echo location;?></a></li>
+  </ul>
+</div>   
+
+<div class="dropdown">
+  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <?php echo forms; ?>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="../user/buy.php"><?php echo buy;?></a></li>
+    <li><a class="dropdown-item" href="../ueser/sell.php"><?php echo sell;?></a></li>
+    <li><a class="dropdown-item" href="../user/rent.php"><?php echo rent;?></a></li>
+    <li><a class="dropdown-item" href="../user/produce.php"><?php echo produce;?></a></li>
+  </ul>
+</div>              
       </ul>
       <?php
       }
